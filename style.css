@@ -708,7 +708,7 @@ header .header-container .header-content .header-content__profile-tab .profile-c
     align-items: center;
     justify-content: unset;
     flex-direction: column;
-    gap: 5rem;
+    gap: 2rem;
     width: 70px;
     position: fixed;
     top: 0;
