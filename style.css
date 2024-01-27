@@ -694,6 +694,12 @@ header .header-container .header-content .header-content__profile-tab .profile-c
   width: 100%;
 }
 
+@media screen and (max-width: 350px) {
+  aside {
+    gap: 0rem;
+  }
+}
+
 @media screen and (max-width: 680px) {
   .four-column-refund-container {
     grid-template-columns: 1fr 1fr;
