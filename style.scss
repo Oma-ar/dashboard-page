@@ -1,0 +1,940 @@
+//////// Functions
+
+@mixin flex($justify, $direction) {
+	display: flex;
+	align-items: center;
+	justify-content: $justify;
+	flex-direction: $direction;
+}
+
+//////// Variables
+
+// ---- colors ----- //
+
+$Accent: #fafafa;
+
+//////// Dark mode colors
+
+$BorderColor: #edf2f7;
+$DarkModeBg: #2f2f2f;
+$DarkSurfaceColor: #121212;
+
+//////////// General styling
+
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	margin: 0;
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+.expand {
+	color: #34caa5;
+	font-weight: 500;
+}
+
+//////////////// Main styling
+
+body {
+	background-color: $Accent;
+	margin: 0;
+	font-family: system-ui;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-weight: 400;
+
+	/////////// Dark mode styling
+
+	&.active {
+		background-color: $DarkSurfaceColor;
+		color: white;
+
+		aside {
+			border-right: none;
+			background-color: $DarkModeBg;
+
+			.toggle-aside-bar {
+				background-color: $DarkModeBg;
+			}
+
+			.sidebar-tab {
+				img {
+					filter: drop-shadow(2px 2px 0 #34caa5);
+				}
+
+				&::after {
+					background-color: white;
+				}
+			}
+		}
+
+		header {
+			background-color: $DarkModeBg;
+			border-bottom: none;
+
+			.toggle-menu {
+				.line {
+					background-color: white;
+				}
+			}
+
+			.header-content {
+				.header-content__date-notification {
+					img {
+						background-color: white;
+
+						&:nth-child(1) {
+							background-color: transparent;
+							filter: invert(100%);
+						}
+					}
+				}
+
+				.header-content__profile-tab {
+					background-color: white;
+					.profile-tab__info {
+						span {
+							color: black;
+						}
+					}
+
+					.profile-content {
+						background-color: $DarkModeBg;
+						height: 0;
+						border: none;
+
+						&.active {
+							height: auto;
+							box-shadow: 0 0 50px rgba(0, 0, 0, 0.587);
+						}
+
+						h4 {
+							border-bottom: 1px solid $BorderColor;
+							padding: 0.5rem 0.5rem 0.5rem 0;
+							margin-bottom: 0.4rem;
+							font-weight: 400;
+						}
+
+						.container {
+							span {
+								background-color: $DarkModeBg;
+								border: 3px solid transparent;
+								border-radius: 0;
+
+								font-size: 0.8rem;
+								cursor: pointer;
+
+								&:hover {
+									background-color: $DarkModeBg;
+									color: white;
+									border-left: 3px solid white;
+								}
+							}
+						}
+					}
+				}
+
+				&.header-content__mobile {
+					background-color: $DarkModeBg;
+
+					.header-content__profile-tab {
+						background-color: transparent;
+					}
+
+					.for-desktop {
+						background-color: transparent;
+					}
+
+					.tab-container {
+						background-color: white;
+					}
+				}
+			}
+		}
+
+		.grid-container {
+			section:not(.four-column-refund-container) {
+				background-color: $DarkModeBg;
+			}
+
+			section {
+				border: 0;
+			}
+
+			.four-column-refund-container {
+				.four-column__item {
+					background-color: $DarkModeBg;
+					border: 0;
+
+					.four-column__item__text-body {
+						span {
+							color: white;
+						}
+					}
+				}
+			}
+
+			.sales-trend {
+				select {
+					color: white;
+
+					option {
+						color: white;
+						background-color: black;
+					}
+				}
+
+				.lines-bars {
+					&::after,
+					&::before {
+						background-color: #34caa5;
+					}
+				}
+			}
+
+			.order-table {
+				color: white;
+
+				table {
+					.table-avatar-name {
+						color: white;
+					}
+
+					.table-amount {
+						color: white;
+					}
+
+					.table-invoice {
+						img {
+							filter: invert(100%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//////////////// Dashboard container contains all contents
+
+.dashboard-container {
+	@include flex(space-between, row);
+	align-items: flex-start;
+}
+
+///////////////// Aside Bar content
+
+aside {
+	@include flex(space-between, column);
+	padding: 1rem;
+	border-right: 1px solid #ebecf2;
+	position: sticky;
+	top: 0;
+	height: 100vh;
+
+	.sidebar__nav,
+	.bottom-sidebar__content {
+		@include flex(unset, column);
+
+		img:not(.light-mode, .dark-mode):hover {
+			filter: drop-shadow(2px 2px 0 #34caa5);
+		}
+	}
+
+	.logo {
+		margin-bottom: 0.5rem;
+	}
+
+	.sidebar-tab {
+		position: relative;
+		@include flex(center, center);
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 5px;
+			height: 80%;
+			background-color: black;
+			border-radius: 1rem 0 0 1rem;
+			right: -15px;
+			z-index: 10;
+		}
+	}
+
+	.toggle-theme {
+		border: none;
+		background-color: white;
+		border-radius: 100vmax;
+		border: 1px solid #dadddd;
+		padding: 0.3rem;
+		margin-top: 1rem;
+		@include flex(unset, column);
+		gap: 0.5rem;
+		transition: all 300ms ease-in-out;
+
+		img {
+			cursor: pointer;
+			transition: all 300ms ease-in-out;
+			border-radius: 50%;
+		}
+
+		&.active {
+			background-color: white;
+		}
+	}
+
+	.toggle-aside-bar {
+		position: relative;
+		top: -20%;
+		right: -3.9rem;
+		background-color: $Accent;
+		border-radius: 0 3rem 3rem 0;
+		border: 1px solid $BorderColor;
+		border-left: none;
+		padding: 1rem;
+		z-index: 500;
+		display: none;
+	}
+}
+
+/////////////// Main Container Styling
+
+main {
+	flex: 1;
+	overflow-x: hidden;
+	position: relative;
+}
+
+/////////////// Header content
+
+header {
+	z-index: 200;
+	background-color: $Accent;
+	border-bottom: 1px solid #ebecf2;
+
+	.header-container {
+		@include flex(space-between, row);
+		padding: 0.8rem;
+		font-family: "Inter", sans-serif;
+
+		.header-content,
+		.header-content__search-bar,
+		.header-content__date-notification,
+		.date-notification__current-date,
+		.header-content__profile-tab {
+			@include flex(space-between, row);
+			gap: 0.5rem;
+		}
+
+		.dashboard-name {
+			font-size: 1.4rem;
+		}
+
+		.header-content {
+			gap: 2rem;
+
+			&.header-content__mobile {
+				display: none;
+			}
+
+			.header-content__search-bar {
+				border: 1px solid #dadddd;
+				border-radius: 100vmax;
+				background-color: #fff;
+				padding: 0.3em;
+				padding: 0.7rem;
+
+				img[type="submit"] {
+					cursor: pointer;
+				}
+
+				input {
+					border: none;
+					background-color: transparent;
+					outline: none;
+					font-family: "Inter", sans-serif;
+
+					&[type="search"] {
+						color: black;
+					}
+				}
+			}
+			.header-content__date-notification {
+				font-weight: 500;
+				font-size: 0.9rem;
+
+				.notification-icon {
+					padding: 0.3rem;
+					border: 1px solid #dadddd;
+					border-radius: 50%;
+					margin-left: 1rem;
+				}
+			}
+
+			.header-content__profile-tab {
+				border: 1px solid #dadddd;
+				border-radius: 100vmax;
+
+				.Profile-tab__avatar {
+					width: 2.5rem;
+					margin: 0.3rem;
+				}
+
+				.profile-tab__info {
+					@include flex(unset, column);
+					align-items: flex-end;
+
+					span {
+						color: #26282c;
+
+						&:nth-child(2) {
+							color: #787486;
+							font-size: 0.9rem;
+						}
+					}
+				}
+
+				.profile-tab__expand {
+					margin: 0.3rem;
+					cursor: pointer;
+				}
+
+				.profile-content {
+					position: absolute;
+					background-color: white;
+					top: 80px;
+					border-radius: 0.8rem;
+					height: 0;
+					border: none;
+					overflow: hidden;
+
+					&.active {
+						height: auto;
+						box-shadow: 0 0 50px $BorderColor;
+					}
+
+					h4 {
+						border-bottom: 1px solid $BorderColor;
+						padding: 0.5rem 0.5rem 0.5rem 0;
+						margin-bottom: 0.4rem;
+						font-weight: 400;
+					}
+
+					.container {
+						padding: 1rem;
+						@include flex(space-between, column);
+						align-items: flex-start;
+						gap: 0.5rem;
+
+						span {
+							margin-top: 0.2rem;
+							background-color: $Accent;
+							display: block;
+							width: 100%;
+							padding: 0.5rem;
+							border-radius: 0.5rem;
+							font-size: 0.8rem;
+							cursor: pointer;
+
+							&:hover {
+								background-color: #34caa5;
+								color: white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/////////////// Grid container
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 65% 35%;
+	gap: 1rem;
+	margin: 1rem;
+
+	section:not(:nth-child(2)) {
+		background-color: white;
+		border-radius: 0.8rem;
+		border: 1px solid $BorderColor;
+		padding: 1rem;
+	}
+}
+
+//////////////  Bar Chart / Sales Trend
+
+.sales-trend {
+	position: relative;
+	.sales-trend__header {
+		@include flex(space-between, row);
+		width: 100%;
+	}
+
+	.sort-order {
+		@include flex(unset, row);
+		gap: 0.5rem;
+	}
+
+	.sort-list {
+		border: 1px solid $BorderColor;
+		border-radius: 100vmax;
+		padding: 0.3rem;
+
+		select {
+			border: none;
+			box-shadow: 0 0 0 transparent;
+			outline: none;
+			background-color: transparent;
+			cursor: pointer;
+
+			option {
+				border: none;
+				box-shadow: 0 0 0 transparent;
+			}
+		}
+	}
+
+	.bar-chart-container {
+		@include flex(center, row);
+		align-items: flex-start;
+		padding-top: 2rem;
+		height: 100%;
+
+		.bar-length {
+			@include flex(unset, column);
+			gap: 1.4rem;
+			align-items: flex-start;
+			margin-right: 1rem;
+			height: 100%;
+		}
+		.bar-line-dates {
+			@include flex(unset, column);
+			align-items: flex-start;
+			padding-bottom: 1rem;
+			max-width: 100%;
+			overflow-x: auto;
+
+			.lines-bars {
+				position: relative;
+				isolation: isolate;
+
+				&::after,
+				&::before {
+					position: absolute;
+					content: "";
+					@include flex(center, center);
+					inset: 10% 0 0 60%;
+					transform: translate(-50%, -50%);
+					background-color: #0d062d;
+					z-index: 10;
+				}
+
+				&::after {
+					content: "$45,000";
+					width: 100px;
+					height: fit-content;
+					color: white;
+					font-weight: 300;
+					font-weight: 500;
+					padding: 0.5rem;
+					border-radius: 0.3rem;
+				}
+
+				&::before {
+					width: 20px;
+					height: 20px;
+					transform: rotate(45deg);
+					top: 7%;
+					left: 51%;
+					z-index: 100;
+				}
+
+				.lines {
+					position: relative;
+					z-index: -1;
+				}
+
+				.bars {
+					position: absolute;
+					left: 0;
+					bottom: 3px;
+					z-index: 10;
+					width: 100%;
+				}
+			}
+
+			.dates {
+				@include flex(space-between, row);
+				min-width: 700px;
+				margin-top: 1rem;
+			}
+		}
+	}
+}
+
+////////////// Refund section
+
+.four-column-refund-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+
+	.four-column__item {
+		background-color: white;
+		border-radius: 0.5rem;
+		border: 1px solid $BorderColor;
+		@include flex(unset, column);
+		align-items: flex-start;
+		gap: 0.8rem;
+		padding: 1rem;
+
+		.wavy-vector-image {
+			@include flex(space-between, row);
+			width: 100%;
+		}
+
+		.four-column__item__text-body {
+			span {
+				display: block;
+				font-weight: 500;
+				font-size: 1.1rem;
+				color: #898989;
+
+				&:nth-child(2) {
+					margin-top: 0.3rem;
+					font-weight: 600;
+					font-size: 1.5rem;
+					color: #3a3f51;
+				}
+			}
+		}
+
+		.item__trend {
+			@include flex(unset, row);
+			gap: 0.8rem;
+			font-family: "Inter", sans-serif;
+
+			p {
+				font-size: 1rem;
+			}
+
+			.trend__icon-percent {
+				@include flex(unset, row);
+				gap: 0.2rem;
+				padding: 0.3rem;
+				background-color: #34caa51f;
+				border-radius: 1rem;
+				font-size: 0.75rem;
+
+				span {
+					color: #34caa5;
+				}
+
+				&.red {
+					background-color: #ed544e1f;
+
+					span {
+						color: #ed544e;
+					}
+				}
+			}
+
+			p {
+				font-size: 0.7rem;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+/////////// Order tables
+
+.order-table {
+	padding: 1rem;
+
+	.table-scroll {
+		overflow-x: auto;
+	}
+
+	.order-table__header {
+		@include flex(space-between, row);
+	}
+
+	table {
+		width: 100%;
+		min-width: 700px;
+		border-collapse: collapse;
+		margin-top: 2rem;
+
+		th {
+			text-align: start;
+			color: #9ca4ab;
+			font-weight: 400;
+		}
+
+		tbody {
+			.table-avatar-name {
+				@include flex(unset, row);
+				gap: 1rem;
+				color: #3a3f51;
+				font-weight: 500;
+			}
+
+			.tbody__row {
+				border-bottom: 1px solid #edf2f6;
+
+				&:nth-child(5) {
+					border: none;
+				}
+
+				td {
+					padding: 1rem 0;
+				}
+			}
+
+			.table-date {
+				color: #737373;
+				font-weight: 500;
+			}
+
+			.table-amount {
+				color: #0d062d;
+				font-weight: 700;
+			}
+
+			.table-status {
+				color: #34caa5;
+
+				&.refund {
+					color: #ed544e;
+				}
+			}
+
+			.table-invoice {
+				@include flex(unset, row);
+				gap: 1rem;
+				height: 100%;
+				margin-bottom: 1rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+//////////////// Top platform
+
+.platform-ratings {
+	padding: 1rem;
+
+	.platform__header {
+		@include flex(space-between, row);
+	}
+
+	.platform__ratings-row-container {
+		@include flex(space-around, column);
+		align-items: flex-start;
+		padding-bottom: 1rem;
+		height: 100%;
+
+		.rated-item {
+			@include flex(unset, column);
+			align-items: flex-start;
+			gap: 0.8rem;
+			width: 100%;
+			margin-top: 1rem;
+
+			.tracker {
+				height: 10px;
+				width: 100%;
+				background-color: #f5f5f5;
+				border-radius: 100vmax;
+			}
+
+			.track {
+				display: block;
+				width: 55%;
+				height: 10px;
+				background-color: red;
+				border-radius: 100vmax;
+
+				&.bazzar {
+					background-color: #6160dc;
+				}
+				&.aisle {
+					background-color: #54c5eb;
+					width: 40%;
+				}
+				&.troop {
+					background-color: #ffb74a;
+					width: 30%;
+				}
+				&.xstore {
+					background-color: #ff4a55;
+					width: 25%;
+				}
+			}
+
+			.amount-percent {
+				@include flex(space-between, row);
+				width: 100%;
+			}
+		}
+	}
+}
+
+/////////////// Media Queries
+
+@media screen and (max-width: 680px) {
+	.four-column-refund-container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.dashboard-container {
+		display: block;
+	}
+	aside {
+		@include flex(unset, column);
+		gap: 5rem;
+		width: 70px;
+		position: fixed;
+		top: 0;
+		left: -70px;
+		transition: 0.2s;
+		z-index: 100;
+		background-color: $Accent;
+		padding: 1rem 0.3rem;
+
+		&.active {
+			left: 0;
+			opacity: 1;
+		}
+
+		.toggle-aside-bar {
+			display: block;
+		}
+
+		.sidebar__nav {
+			gap: 0.5rem;
+		}
+	}
+
+	header {
+		overflow: hidden;
+
+		.header-container {
+			padding: 1.5rem;
+
+			.header-content {
+				display: none;
+
+				&.header-content__mobile {
+					display: block;
+					@include flex(unset, column);
+					gap: 2rem;
+					position: absolute;
+					right: -14rem;
+					top: 5rem;
+					border-radius: 1rem;
+					background-color: white;
+					border: 1px solid $BorderColor;
+					z-index: 300;
+					padding: 1.5rem;
+					scale: 0.5;
+					opacity: 0.5;
+					transition: 0.3s;
+
+					&.active {
+						right: 1rem;
+						scale: 1;
+						opacity: 1;
+					}
+
+					.header-content__profile-tab {
+						border: none;
+						.tab-container {
+							@include flex(unset, row);
+
+							border: 1px solid #dadddd;
+							border-radius: 100vmax;
+						}
+						@include flex(unset, column);
+						.profile-content {
+							position: static;
+							display: block;
+							margin-top: 1rem;
+
+							&.active {
+								height: auto;
+							}
+						}
+					}
+				}
+			}
+
+			.header-content__date-notification {
+				order: 1;
+			}
+
+			.header-content__profile-tab {
+				order: 0;
+			}
+		}
+	}
+
+	.toggle-menu {
+		width: 20px;
+
+		.line {
+			width: 100%;
+			height: 2.5px;
+			margin: 4px;
+			background-color: black;
+			border-radius: 1rem;
+			transition: 0.3s;
+		}
+
+		&:hover .line:nth-child(2) {
+			width: 60%;
+		}
+	}
+
+	.bar-line-dates {
+		@include flex(unset, column);
+		align-items: flex-start;
+		overflow-x: scroll;
+		padding-bottom: 1rem;
+
+		.lines-bars {
+			position: relative;
+			min-width: 100%;
+		}
+	}
+
+	.grid-container {
+		@include flex(unset, column);
+		align-items: flex-start;
+
+		section {
+			width: 100%;
+		}
+	}
+
+	.four-column-refund-container {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+}

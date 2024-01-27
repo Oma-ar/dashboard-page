@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+
+		<!-- Font family -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<div class="dashboard-container">
+			<!-- Aside markup -->
+
+			<aside class="aside-sidebar-contents">
+				<div class="top-sidebar__content">
+					<a href="#"
+						><img src="assets/images/logo.svg" alt="logo-image" class="logo"
+					/></a>
+					<div class="sidebar__nav">
+						<a href="#" class="sidebar-tab"
+							><img
+								src="assets/images/sidebar-tab.svg"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+						<a href="#"
+							><img
+								src="assets/images/sidebar-trend.svg"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+						<a href="#"
+							><img
+								src="assets/images/sidebar-profile.svg"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+						<a href="#"
+							><img
+								src="assets/images/sidebar-package.svg"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+						<a href="#"
+							><img
+								src="assets/images/sidbar-percent.svg"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+						<a href="#"
+							><img
+								src="assets/images/sidebar-info.png"
+								alt="sidebar-icon"
+								class="sidebar__nav__icon"
+						/></a>
+
+						<button class="toggle-theme">
+							<img
+								src="assets/images/sidebar-light.svg"
+								onclick="toggleCloseDarkMode()"
+								class="light-mode"
+							/>
+							<img
+								src="assets/images/sidebar-moon.svg"
+								onclick="toggleDarkMode()"
+								class="dark-mode"
+							/>
+						</button>
+					</div>
+				</div>
+
+				<img
+					src="assets/images/sidebar-arrow-right.svg"
+					alt="sidebar-icon"
+					class="toggle-aside-bar"
+					onclick="toggleAsideSideBar()"
+				/>
+
+				<div class="bottom-sidebar__content">
+					<a href="#"
+						><img
+							src="assets/images/sidebar-arrow-right.svg"
+							alt="sidebar-icon"
+							class="sidebar__nav__icon"
+					/></a>
+					<a href="#"
+						><img
+							src="assets/images/sidebar-setting.svg"
+							alt="sidebar-icon"
+							class="sidebar__nav__icon"
+					/></a>
+					<a href="#"
+						><img
+							src="assets/images/sidebar-arrow-left.svg"
+							alt="sidebar-icon"
+							class="sidebar__nav__icon"
+					/></a>
+				</div>
+			</aside>
+
+			<!-- Main content -->
+
+			<main>
+				<!-- Header content -->
+
+				<header>
+					<div class="header-container">
+						<h1 class="dashboard-name">Dashboard</h1>
+
+						<div class="toggle-menu" onclick="toggleHeaderSideBar()">
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+						</div>
+
+						<div class="header-content header-content__desktop">
+							<form action="" class="header-content__search-bar">
+								<img
+									src="assets/images/Icon - Search.svg"
+									alt="submit"
+									type="submit"
+								/>
+								<input
+									type="search"
+									name="search"
+									id="search-input"
+									placeholder="Search..."
+								/>
+							</form>
+
+							<div class="header-content__date-notification">
+								<div class="date-notification__current-date">
+									<img
+										src="assets/images/icon - date.svg"
+										alt="calendar-icon"
+										class="calendar-icon"
+									/>
+									<p>November 15,2023</p>
+								</div>
+
+								<img
+									src="assets/images/icon - bell.svg"
+									alt="notification-icon"
+									class="notification-icon"
+								/>
+							</div>
+
+							<div class="header-content__profile-tab">
+								<img
+									src="assets/images/header-avatar.png"
+									alt="profile-image"
+									class="Profile-tab__avatar"
+								/>
+								<div class="profile-tab__info">
+									<span>Justin Bergson</span>
+									<span>Justin@gmail.com</span>
+								</div>
+								<img
+									src="assets/images/Arrow - Down.svg"
+									alt="expand-profile-tab"
+									class="profile-tab__expand"
+									onclick="toggleProfileContentDesktop()"
+								/>
+								<div class="profile-content">
+									<div class="container">
+										<h4>profile: Justin Bergson</h4>
+										<span>Transaction</span>
+										<span>Investment</span>
+										<span>Financial management</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="header-content header-content__mobile">
+							<form action="" class="header-content__search-bar">
+								<img
+									src="assets/images/Icon - Search.svg"
+									alt="submit"
+									type="submit"
+								/>
+								<input
+									type="search"
+									name="search"
+									id="search-input"
+									placeholder="Search..."
+								/>
+							</form>
+
+							<div class="header-content__date-notification">
+								<div class="date-notification__current-date">
+									<img
+										src="assets/images/icon - date.svg"
+										alt="calendar-icon"
+										class="calendar-icon"
+									/>
+									<p>November 15,2023</p>
+								</div>
+
+								<img
+									src="assets/images/icon - bell.svg"
+									alt="notification-icon"
+									class="notification-icon"
+								/>
+							</div>
+
+							<div class="header-content__profile-tab">
+								<div class="tab-container">
+									<img
+										src="assets/images/header-avatar.png"
+										alt="profile-image"
+										class="Profile-tab__avatar"
+									/>
+									<div class="profile-tab__info">
+										<span>Justin Bergson</span>
+										<span>Justin@gmail.com</span>
+									</div>
+									<img
+										src="assets/images/Arrow - Down.svg"
+										alt="expand-profile-tab"
+										class="profile-tab__expand"
+										onclick="toggleProfileContentMobile()"
+									/>
+								</div>
+								<div class="profile-content for-mobile">
+									<div class="container">
+										<h4>profile: Justin Bergson</h4>
+										<span>Transaction</span>
+										<span>Investment</span>
+										<span>Financial management</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<!-- Grid container -->
+
+				<div class="grid-container">
+					<!-- Sales trend -->
+
+					<section class="sales-trend">
+						<div class="sales-trend__header">
+							<h2>Sales Trend</h2>
+
+							<div class="sort-order">
+								<p class="sort-by">Sort by:</p>
+								<div class="sort-list">
+									<select name="" id="">
+										<option value="option1">Weekly</option>
+										<option value="option2">Monthly</option>
+										<option value="option3">Yearly</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="bar-chart-container">
+							<div class="bar-length">
+								<span>50.00</span>
+								<span>40.00</span>
+								<span>30.00</span>
+								<span>20.00</span>
+								<span>10.00</span>
+								<span>5.00</span>
+								<span>0</span>
+							</div>
+							<div class="bar-line-dates">
+								<div class="lines-bars">
+									<img src="assets/images/Bar.png" class="bars" />
+									<img src="assets/images/Line.png" class="lines" />
+								</div>
+								<div class="dates">
+									<span>Jan</span>
+									<span>Feb</span>
+									<span>Mar</span>
+									<span>Apr</span>
+									<span>May</span>
+									<span>Jun</span>
+									<span>Jul</span>
+									<span>Aug</span>
+									<span>Sept</span>
+									<span>Oct</span>
+									<span>Nov</span>
+									<span>Dec</span>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Four column container -->
+
+					<section class="four-column-refund-container">
+						<div class="four-column__item">
+							<div class="wavy-vector-image">
+								<img src="assets/images/Iconrefund-box.svg" alt="icon" />
+								<img
+									src="assets/images/refund-trend-green.svg"
+									alt="wavy-vector"
+								/>
+							</div>
+							<div class="four-column__item__text-body">
+								<span class="item__name">Total order</span>
+								<span class="item__amount">234</span>
+							</div>
+							<div class="item__trend">
+								<div class="trend__icon-percent">
+									<img
+										src="assets/images/trending-up.svg"
+										alt="icon"
+										class="trend-icon"
+									/>
+									<span>23.5%</span>
+								</div>
+								<p>vs. previous month</p>
+							</div>
+						</div>
+
+						<div class="four-column__item">
+							<div class="wavy-vector-image">
+								<img src="assets/images/Iconrefundswirl.svg" alt="icon" />
+								<img
+									src="assets/images/refund-trend-red.svg"
+									alt="wavy-vector"
+								/>
+							</div>
+							<div class="four-column__item__text-body">
+								<span class="item__name">Total Refund</span>
+								<span class="item__amount">270</span>
+							</div>
+							<div class="item__trend">
+								<div class="trend__icon-percent red">
+									<img
+										src="assets/images/trending-down.svg"
+										alt="icon"
+										class="trend-icon"
+									/>
+									<span>23.5%</span>
+								</div>
+								<p>vs. previous month</p>
+							</div>
+						</div>
+
+						<div class="four-column__item">
+							<div class="wavy-vector-image">
+								<img src="assets/images/Iconrefundswirl.svg" alt="icon" />
+								<img
+									src="assets/images/refund-trend-red.svg"
+									alt="wavy-vector"
+								/>
+							</div>
+							<div class="four-column__item__text-body">
+								<span class="item__name">Average Sales</span>
+								<span class="item__amount">1567</span>
+							</div>
+							<div class="item__trend">
+								<div class="trend__icon-percent red">
+									<img
+										src="assets/images/trending-down.svg"
+										alt="icon"
+										class="trend-icon"
+									/>
+									<span>23.5%</span>
+								</div>
+								<p>vs. previous month</p>
+							</div>
+						</div>
+
+						<div class="four-column__item">
+							<div class="wavy-vector-image">
+								<img src="assets/images/Iconrefund-box.svg" alt="icon" />
+								<img
+									src="assets/images/refund-trend-green.svg"
+									alt="wavy-vector"
+								/>
+							</div>
+							<div class="four-column__item__text-body">
+								<span class="item__name">Total Income</span>
+								<span class="item__amount">$350.000</span>
+							</div>
+							<div class="item__trend">
+								<div class="trend__icon-percent">
+									<img
+										src="assets/images/trending-up.svg"
+										alt="icon"
+										class="trend-icon"
+									/>
+									<span>23.5%</span>
+								</div>
+								<p>vs. previous month</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Order table -->
+
+					<section class="order-table">
+						<div class="order-table__header">
+							<h3>Last Orders</h3>
+							<p class="expand table-content">See All</p>
+						</div>
+						<div class="table-scroll">
+							<table>
+								<tr>
+									<th scope="col">Name</th>
+									<th>Date</th>
+									<th>Amount</th>
+									<th>Status</th>
+									<th>Invoice</th>
+								</tr>
+
+								<tbody>
+									<tr class="tbody__row">
+										<td class="table-avatar-name">
+											<img src="assets/images/marcus.png" alt="person-image" />
+											<p>Marcus Bergson</p>
+										</td>
+										<td class="table-date">Nov,15 2023</td>
+										<td class="table-amount">$80,000</td>
+										<td class="table-status paid">paid</td>
+										<td class="table-invoice">
+											<img
+												src="assets/images/icon - download.svg"
+												alt="view"
+											/><span>view</span>
+										</td>
+									</tr>
+
+									<tr class="tbody__row">
+										<td class="table-avatar-name">
+											<img src="assets/images/jaydon.png" alt="person-image" />
+											<p>Jaydon Vaccaro</p>
+										</td>
+										<td class="table-date">Nov,15 2023</td>
+										<td class="table-amount">$150,000</td>
+										<td class="table-status refund">refund</td>
+										<td class="table-invoice">
+											<img
+												src="assets/images/icon - download.svg"
+												alt="view"
+											/><span>view</span>
+										</td>
+									</tr>
+
+									<tr class="tbody__row">
+										<td class="table-avatar-name">
+											<img src="assets/images/corey.png" alt="person-image" />
+											<p>Corey Schleifer</p>
+										</td>
+										<td class="table-date">Nov,15 2023</td>
+										<td class="table-amount">$87,000</td>
+										<td class="table-status paid">paid</td>
+										<td class="table-invoice">
+											<img
+												src="assets/images/icon - download.svg"
+												alt="view"
+											/><span>view</span>
+										</td>
+									</tr>
+
+									<tr class="tbody__row">
+										<td class="table-avatar-name">
+											<img src="assets/images/cooper.png" alt="person-image" />
+											<p>Cooper Press</p>
+										</td>
+										<td class="table-date">Nov,15 2023</td>
+										<td class="table-amount">$100,000</td>
+										<td class="table-status refund">refund</td>
+										<td class="table-invoice">
+											<img
+												src="assets/images/icon - download.svg"
+												alt="view"
+											/><span>view</span>
+										</td>
+									</tr>
+
+									<tr class="tbody__row">
+										<td class="table-avatar-name">
+											<img src="assets/images/phillip.png" alt="person-image" />
+											<p>Phillip Ubin</p>
+										</td>
+										<td class="table-date">Nov,15 2023</td>
+										<td class="table-amount">$78,000</td>
+										<td class="table-status paid">paid</td>
+										<td class="table-invoice">
+											<img
+												src="assets/images/icon - download.svg"
+												alt="view"
+											/><span>view</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<!-- Platform ratings -->
+
+					<section class="platform-ratings">
+						<div class="platform__header">
+							<h3>Top platforms</h3>
+							<p class="expand platform-column">See All</p>
+						</div>
+						<div class="platform__ratings-row-container">
+							<div class="rated-item">
+								<h3>Book Bazzar</h3>
+								<div class="tracker">
+									<span class="track bazzar"></span>
+								</div>
+								<div class="amount-percent">
+									<span>$2,500,000</span>
+									<span>+15%</span>
+								</div>
+							</div>
+
+							<div class="rated-item">
+								<h3>Artisan Aisle</h3>
+								<div class="tracker">
+									<span class="track aisle"></span>
+								</div>
+								<div class="amount-percent">
+									<span>$1,800,000</span>
+									<span>+15%</span>
+								</div>
+							</div>
+
+							<div class="rated-item">
+								<h3>Toy troop</h3>
+								<div class="tracker">
+									<span class="track troop"></span>
+								</div>
+								<div class="amount-percent">
+									<span>$1,200,000</span>
+									<span>+15%</span>
+								</div>
+							</div>
+
+							<div class="rated-item">
+								<h3>xStore</h3>
+								<div class="tracker">
+									<span class="track xstore"></span>
+								</div>
+								<div class="amount-percent">
+									<span>$1,000,000</span>
+									<span>+15%</span>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</main>
+		</div>
+		<script src="script.js"></script>
+
+		<!--  Umar ridwan twitter: @heislucidexe -->
+	</body>
+</html>
