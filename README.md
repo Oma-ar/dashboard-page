@@ -8,11 +8,6 @@ Acknowledgements:
 Geegpay,
 David Herbet 
 
-
-
-
-
-
-
-
+Live Demo at : 
+https://lucid-exe-me.github.io/dashboard-page/
 
